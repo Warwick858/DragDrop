@@ -1,0 +1,114 @@
+/*@import "~@angular/cdk/overlay";*/
+/*@include cdk-overlay();*/
+
+/* ====================== Mobile and Up ========================== */
+
+.bar {
+    margin: 5px;
+    padding: 8px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #959494;
+    box-shadow: 1px 1px 8px #959494;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*on move event*/
+.isDragging {
+    background: #e8e8e8;
+}
+
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+.sortable.isDragging {
+    background: none;
+    border: 1px dashed black;
+    color: transparent;
+    /*background-color: white;
+    width: 100%;*/
+}
+
+/*needed for reset*/
+.movable:not(.isDragging) {
+    transition: transform 300ms ease-in-out;
+}
+
+.preview {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.area {
+    background: #515e87;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.dropzone {
+    padding: 20px;
+    margin: 20px 0;
+    background: lightgray;
+    min-height: 200px;
+    border: 1px solid black;
+}
+
+.dropzone-activated {
+    border: 1px solid red;
+}
+
+.dropzone-entered {
+    background-color: #efefef;
+}
+
+.bar-helper {
+    pointer-events: none;
+
+    /*background-color: white;
+    margin: 5px;
+    padding: 8px;
+    width: 1318px;
+    height: 40px;
+    border: 1px solid #959494;
+    box-shadow: 1px 1px 8px #959494;
+    display: flex;
+    flex-direction: row;
+    align-items: center;*/
+}
+
+.cdk-overlay-pane {
+    pointer-events: none !important;
+}
+
+/*End mobile and up styles*/
+
+/* ====================== Tablet and Up (Overrides Mobile Styles) ========================== */
+@media only screen and (min-width: 768px) {
+}
+/*end media query*/
+/*End tablet and up styles*/
+
+/* ====================== Landscape Tablet and Up (Overrides Mobile Styles) ========================== */
+@media only screen and (min-width: 992px) {
+}
+/*end media query*/
+/*End landscape tablet and up styles*/
+
+/* ====================== Desktop Only (Overrides Mobile and Tablet Styles) ========================== */
+@media only screen and (min-width: 1200px) {
+}
+/*end media query*/
+/*End desktop only styles*/
+/*END OF DOCUMENT*/

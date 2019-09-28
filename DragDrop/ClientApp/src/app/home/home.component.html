@@ -1,0 +1,121 @@
+<!--1 - Draggable-->
+<section>
+    <h1>1 - Draggable</h1>
+
+    <div class="bar" appMovable
+         (dragStart)="onDragStart($event)"
+         (dragMove)="onDragMove($event)"
+         (dragEnd)="onDragEnd($event)">
+
+        <p class="preview">OPS-2661: Rebuild save mechanism for TANC</p>
+
+    </div>
+
+    <div style="width: 100%; height: 100px; margin-top: 50px; border: 1px solid black;"></div>
+</section>
+
+<!--2 - Movable-->
+<div class="area" appMovableArea>
+    <h1>2 - Movable</h1>
+    
+    <div class="bar" appMovable
+         (dragStart)="onDragStart($event)"
+         (dragMove)="onDragMove($event)"
+         (dragEnd)="onDragEnd($event)">
+
+        <p class="preview">OPS-2661: Rebuild save mechanism for TANC</p>
+
+    </div>
+</div>
+
+<!--this example uses the helper which eliminates overflow parent container issues 4-->
+<section>
+    <h1>4 - Overlay Helper</h1>
+
+    <div class="bar" appDraggable
+         (dragStart)="onDragStart($event)"
+         (dragMove)="onDragMove($event)"
+         (dragEnd)="onDragEnd($event)">
+
+        <p class="preview">OPS-2661: Rebuild save mechanism for TANC</p>
+
+        <div class="bar helper" *appDraggableHelper
+             (dragStart)="onDragStart($event)"
+             (dragMove)="onDragMove($event)"
+             (dragEnd)="onDragEnd($event)">
+
+            <p class="preview">OPS-2661: Rebuild save mechanism for TANC</p>
+
+        </div>
+    </div>
+</section>
+
+<!--SORTABLE LIST 5-->
+<section style="padding-top: 40px;">
+    <h1>5 - Sortable</h1>
+
+    <ul appSortableList (sort)="sort($event)">
+        <li *ngFor="let bar of sortableList" class="bar" appSortable>
+            {{ bar }}
+            <div class="bar bar-helper" *appDraggableHelper>{{ bar }}</div>
+        </li>
+    </ul>
+</section>
+
+
+<!--DROPZONE 6-->
+<section style="padding-top: 40px;">
+    <h1>6 - Dropzone</h1>
+
+    <div *ngFor="let bar of availableBars" class="bar"
+         appDroppable (dragStart)="currentBox = bar">
+        {{ bar }}
+        <div class="bar bar-helper" *appDraggableHelper>{{ bar }}</div>
+    </div>
+
+    <div class="dropzone" appDropzone (drop)="move(currentBox, dropzone1)"
+         (remove)="move(currentBox, availableBoxes)">
+        <div *ngFor="let bar of dropzone1" class="bar"
+             appDroppable (dragStart)="currentBox = bar">
+            {{ bar }}
+            <div class="bar" *appDraggableHelper>{{ bar }}</div>
+        </div>
+    </div>
+
+    <div class="dropzone" appDropzone (drop)="move(currentBox, dropzone2)"
+         (remove)="move(currentBox, availableBoxes)">
+        <div *ngFor="let bar of dropzone2" class="bar"
+             appDroppable (dragStart)="currentBox = bar">
+            {{ bar }}
+            <div class="bar" *appDraggableHelper>{{ bar }}</div>
+        </div>
+    </div>
+</section>
+
+<!--Test-->
+<section style="padding-top: 40px;">
+    <ul appSortableList (sort)="sort($event)">
+        <li *ngFor="let bar of sortableList" class="bar" appSortable>
+            {{ bar }}
+            <div class="bar" *appDraggableHelper>{{ bar }}</div>
+        </li>
+    </ul>
+
+    <div class="dropzone" appDropzone (drop)="move(currentBox, dropzone1)"
+         (remove)="move(currentBox, availableBoxes)">
+        <div *ngFor="let bar of dropzone1" class="bar"
+             appDroppable (dragStart)="currentBox = bar">
+            {{ bar }}
+            <div class="bar" *appDraggableHelper>{{ bar }}</div>
+        </div>
+    </div>
+
+    <div class="dropzone" appDropzone (drop)="move(currentBox, dropzone2)"
+         (remove)="move(currentBox, availableBoxes)">
+        <div *ngFor="let bar of dropzone2" class="bar"
+             appDroppable (dragStart)="currentBox = bar">
+            {{ bar }}
+            <div class="bar" *appDraggableHelper>{{ bar }}</div>
+        </div>
+    </div>
+</section>
